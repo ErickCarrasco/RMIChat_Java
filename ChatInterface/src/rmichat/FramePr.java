@@ -153,8 +153,12 @@ public class FramePr extends javax.swing.JFrame {
     private void jb_writeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_writeMouseClicked
         // TODO add your handling code here:
         try {
-            String data=ta_principal.getText();
-            server.escribirArchivo(data);
+            if(InitializationVerify){
+                String data = ta_principal.getText();
+                server.escribirArchivo(data);
+            }else{
+                JOptionPane.showMessageDialog(this, "Access Denied. Init the client connection");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
